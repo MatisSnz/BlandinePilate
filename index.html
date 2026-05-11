@@ -90,7 +90,7 @@
     }
     @keyframes marquee {
       from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
+      to { transform: translateX(var(--marquee-shift, -50%)); }
     }
     @keyframes float {
       0%,100% { transform: translateY(0); }
@@ -668,9 +668,6 @@
         <div class="marquee-items">
           <span>Confiance</span><span>Respiration</span><span>Posture</span><span>Mobilité</span><span>Acceptation</span><span>Stabilité</span>
         </div>
-        <div class="marquee-items" aria-hidden="true">
-          <span>Confiance</span><span>Respiration</span><span>Posture</span><span>Mobilité</span><span>Acceptation</span><span>Stabilité</span>
-        </div>
       </div>
     </div>
 
@@ -913,6 +910,20 @@
       video.play().catch(() => {});
       tick();
     }
+
+    document.fonts.ready.then(function () {
+      const track = document.querySelector('.marquee');
+      const source = track && track.querySelector('.marquee-items');
+      if (!track || !source) return;
+      const unitWidth = source.offsetWidth;
+      const needed = window.innerWidth * 2 + unitWidth;
+      while (track.scrollWidth < needed) {
+        const clone = source.cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true');
+        track.appendChild(clone);
+      }
+      track.style.setProperty('--marquee-shift', '-' + unitWidth + 'px');
+    });
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
