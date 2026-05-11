@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blandine Pilates — Cours privés Lausanne, Pontarlier, Malbuisson</title>
+  <title>Blandine Pilates  Cours privés Lausanne, Pontarlier, Malbuisson</title>
   <meta name="description" content="Cours particuliers de Pilates entre Lausanne, Pontarlier et Malbuisson. Une approche humaine, premium et sur-mesure avec Blandine." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -311,7 +311,8 @@
     .hero-caption strong { display: block; margin-top: 5px; font-size: 20px; color: var(--ink); }
 
     .marquee-wrap { border-block: 1px solid rgba(31,79,89,.10); background: rgba(255,255,255,.46); backdrop-filter: blur(12px); overflow: hidden; padding: 15px 0; }
-    .marquee { width: max-content; display: flex; gap: 42px; color: var(--rose); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .24em; animation: marquee 24s linear infinite; }
+    .marquee { width: max-content; display: flex; animation: marquee 24s linear infinite; will-change: transform; }
+    .marquee-items { display: flex; gap: 42px; padding-right: 42px; color: var(--rose); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .24em; flex-shrink: 0; }
 
     section { position: relative; z-index: 1; }
     .section-pad { padding: 112px 0; }
@@ -664,8 +665,12 @@
 
     <div class="marquee-wrap">
       <div class="marquee">
-        <span>Confiance</span><span>Respiration</span><span>Posture</span><span>Mobilité</span><span>Acceptation</span><span>Stabilité</span>
-        <span>Confiance</span><span>Respiration</span><span>Posture</span><span>Mobilité</span><span>Acceptation</span><span>Stabilité</span>
+        <div class="marquee-items">
+          <span>Confiance</span><span>Respiration</span><span>Posture</span><span>Mobilité</span><span>Acceptation</span><span>Stabilité</span>
+        </div>
+        <div class="marquee-items" aria-hidden="true">
+          <span>Confiance</span><span>Respiration</span><span>Posture</span><span>Mobilité</span><span>Acceptation</span><span>Stabilité</span>
+        </div>
       </div>
     </div>
 
@@ -820,7 +825,7 @@
     <section class="testimonial">
       <div class="container quote-box reveal">
         <p class="quote">“L’objectif n’est pas de devenir quelqu’un d’autre. C’est de retrouver une présence plus juste dans son propre corps.”</p>
-        <p class="quote-meta">— Blandine</p>
+        <p class="quote-meta"> Blandine</p>
       </div>
     </section>
 
@@ -834,17 +839,17 @@
         <div class="testimonial-grid">
           <div class="testimonial-card reveal">
             <p>“J’avais constamment mal au dos et la sensation de ne plus respirer correctement. Les séances avec Blandine sont devenues un vrai espace de récupération mentale et physique.”</p>
-            <div class="testimonial-author">Claire — Lausanne</div>
+            <div class="testimonial-author">Claire  Lausanne</div>
           </div>
 
           <div class="testimonial-card reveal">
             <p>“Après ma grossesse, je cherchais quelque chose de doux mais exigeant. Je me suis sentie écoutée dès la première séance.”</p>
-            <div class="testimonial-author">Émilie — Pontarlier</div>
+            <div class="testimonial-author">Émilie  Pontarlier</div>
           </div>
 
           <div class="testimonial-card reveal">
             <p>“Le travail sur la mobilité et la posture m’a énormément aidé dans ma pratique sportive. Tout est précis, calme et très professionnel.”</p>
-            <div class="testimonial-author">Thomas — Malbuisson</div>
+            <div class="testimonial-author">Thomas  Malbuisson</div>
           </div>
         </div>
 
