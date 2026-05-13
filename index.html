@@ -1,29 +1,31 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blandine Pilates  Cours privés Lausanne, Pontarlier, Malbuisson</title>
-  <meta name="description" content="Cours particuliers de Pilates entre Lausanne, Pontarlier et Malbuisson. Une approche humaine, premium et sur-mesure avec Blandine." />
+  <title>Bland In Flow  Cours Pilates Haut-Doubs & Nord Vaudois</title>
+  <meta name="description" content="Cours privés, semi-privés et collectifs en entreprise dans le Haut-Doubs et le Nord Vaudois. Méthode Joseph Pilates par Blandine Boillon." />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --sage: #7E9F8C;
-      --sage-light: #EAF1EC;
-      --rose: #D77C8C;
-      --rose-soft: #F7E4E6;
-      --rose-mist: #FFF3F0;
+      --sage: #93AF82;
+      --sage-light: #E8F0E3;
+      --rose: #D2A59D;
+      --rose-soft: #F2E8E6;
+      --rose-mist: #F8F2F0;
       --petrol: #1F4F59;
       --petrol-dark: #123941;
-      --cream: #FFF8F5;
+      --cream: #F5F1EB;
+      --beige: #F5F1EB;
       --ink: #171313;
       --muted: #70615F;
       --gold: #D2A85A;
       --white: #FFFFFF;
-      --border: rgba(215,124,140,.18);
-      --shadow: 0 28px 90px rgba(215,124,140,.13);
+      --border: rgba(210,165,157,.18);
+      --shadow: 0 28px 90px rgba(210,165,157,.13);
       --radius-xl: 42px;
       --radius-lg: 30px;
     }
@@ -34,7 +36,7 @@
       margin: 0;
       font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
       color: var(--ink);
-      background: radial-gradient(circle at 20% 0%, rgba(247,228,230,.95), transparent 34%), var(--cream);
+      background: radial-gradient(circle at 20% 0%, rgba(242,232,230,.95), transparent 34%), var(--cream);
       overflow-x: hidden;
     }
 
@@ -68,8 +70,8 @@
       z-index: 0;
       animation: breathe 11s ease-in-out infinite;
     }
-    .orb.one { width: 470px; height: 470px; left: -190px; top: 120px; background: rgba(215,124,140,.24); }
-    .orb.two { width: 520px; height: 520px; right: -210px; top: -170px; background: rgba(126,159,140,.18); animation-name: breathe2; }
+    .orb.one { width: 470px; height: 470px; left: -190px; top: 120px; background: rgba(210,165,157,.24); }
+    .orb.two { width: 520px; height: 520px; right: -210px; top: -170px; background: rgba(147,175,130,.18); animation-name: breathe2; }
     .orb.three { width: 360px; height: 360px; right: 12%; bottom: -170px; background: rgba(31,79,89,.10); }
 
     @keyframes breathe {
@@ -110,8 +112,8 @@
       left: 50%;
       transform: translateX(-50%);
       z-index: 50;
-      width: min(1160px, calc(100% - 28px));
-      padding: 12px 14px;
+      width: min(1160px, calc(100% - 80px));
+      padding: 2px 12px;
       border: 1px solid rgba(255,255,255,.72);
       background: rgba(255,255,255,.62);
       backdrop-filter: blur(22px);
@@ -169,9 +171,9 @@
       white-space: nowrap;
     }
     .btn:hover { transform: translateY(-2px) scale(1.025); }
-    .btn-dark { background: linear-gradient(135deg, var(--rose), #C96B7C); color: white; box-shadow: 0 18px 45px rgba(215,124,140,.28); }
-    .btn-dark:hover { background: linear-gradient(135deg, #C96B7C, #B95F70); }
-    .btn-green { background: linear-gradient(135deg, var(--sage), #6E927C); color: white; box-shadow: 0 18px 45px rgba(126,159,140,.28); }
+    .btn-dark { background: linear-gradient(135deg, var(--rose), #BF8F88); color: white; box-shadow: 0 18px 45px rgba(210,165,157,.28); }
+    .btn-dark:hover { background: linear-gradient(135deg, #BF8F88, #AF8079); }
+    .btn-green { background: linear-gradient(135deg, var(--sage), #7F9E71); color: white; box-shadow: 0 18px 45px rgba(147,175,130,.28); }
     .btn-light { background: rgba(255,255,255,.72); color: var(--ink); border-color: rgba(31,79,89,.14); box-shadow: 0 14px 38px rgba(31,79,89,.06); backdrop-filter: blur(16px); }
     .arrow { transition: transform .45s ease; }
     .btn:hover .arrow { transform: translateX(4px); }
@@ -221,7 +223,7 @@
       gap: 12px;
       padding: 10px 15px;
       border-radius: 999px;
-      border: 1px solid rgba(126,159,140,.25);
+      border: 1px solid rgba(147,175,130,.25);
       background: rgba(255,255,255,.66);
       color: var(--muted);
       font-size: 14px;
@@ -230,7 +232,7 @@
       backdrop-filter: blur(16px);
       animation: fadeUp .8s ease both;
     }
-    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--sage); box-shadow: 0 0 0 7px rgba(126,159,140,.18); }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--sage); box-shadow: 0 0 0 7px rgba(147,175,130,.18); }
     h1 {
       margin: 28px 0 0;
       font-size: clamp(52px, 7.3vw, 104px);
@@ -378,7 +380,7 @@
 
     .who-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       gap: 18px;
       margin-top: 54px;
     }
@@ -555,7 +557,7 @@
     }
     .offer-card.light .offer-card-tag { background: rgba(31,79,89,.12); color: var(--petrol); }
     .offer-card.dark .offer-card-tag { background: rgba(255,255,255,.15); color: rgba(255,255,255,.85); }
-    .offer-card.ink .offer-card-tag { background: rgba(215,124,140,.22); color: var(--rose); }
+    .offer-card.ink .offer-card-tag { background: rgba(210,165,157,.22); color: var(--rose); }
     .offer-card h3 { margin: 0 0 16px; font-size: clamp(26px, 2.5vw, 36px); letter-spacing: -.04em; }
     .offer-card p { margin: 0; font-size: 16px; line-height: 1.8; opacity: .78; max-width: 400px; }
     .offer-card-price-block { margin-top: 28px; display: flex; align-items: baseline; gap: 8px; }
@@ -607,24 +609,132 @@
       .offer-card:nth-child(n) { z-index: auto; }
     }
 
-    .zone-box {
-      background: var(--petrol);
-      color: white;
+    .zone-map-fullbox {
       border-radius: 48px;
-      padding: 54px;
-      box-shadow: 0 42px 120px rgba(31,79,89,.22);
       overflow: hidden;
-      position: relative;
+      box-shadow: 0 42px 120px rgba(31,79,89,.22);
+      background: var(--petrol);
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      grid-template-rows: 1fr auto;
+      min-height: 640px;
     }
-    .zone-box::before { content:""; position:absolute; right:-120px; top:-120px; width:320px; height:320px; border-radius:50%; background:rgba(126,159,140,.22); filter:blur(30px); }
-    .zone-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 44px; position: relative; z-index: 1; }
-    .zone-box .kicker { color: #B8D0C1; }
-    .zone-box h2 { color: white; }
-    .cities { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .city { border: 1px solid rgba(255,255,255,.15); background: rgba(255,255,255,.10); border-radius: 28px; padding: 26px; backdrop-filter: blur(14px); transition: .5s ease; }
-    .city:hover { background: rgba(255,255,255,.16); transform: translateY(-4px); }
-    .city h3 { font-size: 24px; margin: 28px 0 8px; }
-    .city p { margin: 0; color: rgba(255,255,255,.72); font-size: 14px; line-height: 1.7; }
+    .zone-left {
+      padding: 46px 38px 38px 46px;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      color: white;
+      position: relative;
+      z-index: 2;
+    }
+    .zone-left .kicker { color: #B8D0C1; margin: 0; }
+    .zone-left h2 { color: white; margin: 0; font-size: clamp(26px, 2.4vw, 38px); }
+    .zone-left p { color: rgba(255,255,255,.68); font-size: 14px; line-height: 1.75; margin: 0; }
+    .zone-chips { display: flex; flex-direction: column; gap: 10px; }
+    .zone-chip {
+      display: flex; align-items: flex-start; gap: 10px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.10);
+    }
+    .zone-chip-icon { font-size: 16px; margin-top: 1px; }
+    .zone-chip strong { display: block; font-size: 13px; color: white; margin-bottom: 2px; }
+    .zone-chip span { font-size: 12px; color: rgba(255,255,255,.5); line-height: 1.4; }
+    .zone-right {
+      position: relative;
+      grid-row: 1 / 2;
+    }
+    #zone-map {
+      position: absolute;
+      inset: 0;
+      filter: saturate(.72) contrast(.92);
+    }
+    .zone-map-controls {
+      position: absolute;
+      bottom: 16px;
+      right: 16px;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: flex-end;
+    }
+    .zone-search-wrap { display: flex; gap: 6px; }
+    .zone-search-input {
+      width: 220px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,.25);
+      background: rgba(31,79,89,.88);
+      color: white;
+      font-size: 13px;
+      font-family: inherit;
+      backdrop-filter: blur(10px);
+      outline: none;
+      transition: border-color .3s;
+    }
+    .zone-search-input::placeholder { color: rgba(255,255,255,.4); }
+    .zone-search-input:focus { border-color: rgba(255,255,255,.5); }
+    .zone-search-btn {
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: var(--sage);
+      color: white;
+      border: none;
+      font-size: 13px;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      transition: .3s;
+      white-space: nowrap;
+    }
+    .zone-search-btn:hover { background: #7F9E71; }
+    .zone-result {
+      font-size: 12px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      display: none;
+      max-width: 310px;
+      text-align: right;
+      line-height: 1.4;
+    }
+    .zone-result.eligible { background: rgba(147,175,130,.88); color: white; display: block; }
+    .zone-result.not-eligible { background: rgba(210,165,157,.88); color: white; display: block; }
+    .zone-result.loading { background: rgba(31,79,89,.88); color: rgba(255,255,255,.7); display: block; }
+    .zone-recenter-btn {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.25);
+      background: rgba(31,79,89,.88);
+      color: rgba(255,255,255,.8);
+      font-size: 12px;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      transition: .3s;
+      backdrop-filter: blur(10px);
+    }
+    .zone-recenter-btn:hover { background: rgba(31,79,89,1); color: white; }
+    .zone-note {
+      grid-column: 1 / -1;
+      border-top: 1px solid rgba(255,255,255,.10);
+      padding: 16px 46px;
+      font-size: 13px;
+      color: rgba(255,255,255,.48);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .zone-note a { color: var(--rose); text-decoration: none; }
+    .zone-note a:hover { color: white; }
+    @media (max-width: 980px) {
+      .zone-map-fullbox { grid-template-columns: 1fr; }
+      .zone-right { min-height: 280px; }
+      #zone-map { position: absolute; inset: 0; }
+      .zone-left { padding: 36px 28px 28px; }
+    }
 
     .testimonial { padding: 96px 0 40px; }
     .quote-box { max-width: 930px; margin: 0 auto; text-align: center; }
@@ -661,22 +771,102 @@
     .contact-note span { display:block; margin-top:5px; color:#3E4B47; font-size:14px; line-height:1.55; }
 
     .site-footer {
-      border-top: 1px solid rgba(31,79,89,.10);
-      padding: 28px 0;
-      background: var(--cream);
+      background: var(--petrol);
+      color: rgba(255,255,255,.75);
+      padding: 80px 0 0;
     }
-    .footer-inner {
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 52px;
+      padding-bottom: 64px;
+      border-bottom: 1px solid rgba(255,255,255,.10);
+    }
+    .footer-col-title {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.4);
+      margin: 0 0 20px;
+    }
+    .footer-col p {
+      font-size: 14px;
+      line-height: 1.8;
+      color: rgba(255,255,255,.65);
+      margin: 0 0 12px;
+    }
+    .footer-quote {
+      font-size: 18px;
+      line-height: 1.55;
+      font-style: italic;
+      color: white;
+      border-left: 2px solid var(--rose);
+      padding-left: 18px;
+      margin: 0 0 18px;
+    }
+    .footer-formule {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 8px;
+    }
+    .footer-formule-item {
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.10);
+    }
+    .footer-formule-item strong {
+      display: block;
+      font-size: 13px;
+      color: white;
+      margin-bottom: 3px;
+    }
+    .footer-formule-item span {
+      font-size: 12px;
+      color: rgba(255,255,255,.5);
+    }
+    .footer-contact-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: rgba(255,255,255,.7);
+      font-size: 14px;
+      text-decoration: none;
+      margin-bottom: 12px;
+      transition: color .3s ease;
+    }
+    .footer-contact-link:hover { color: white; }
+    .footer-contact-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.1);
+      display: grid;
+      place-items: center;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    .footer-bottom {
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 10px;
+      padding: 22px 0;
       font-size: 12px;
-      color: var(--muted);
+      color: rgba(255,255,255,.35);
     }
-    .footer-links { display: flex; gap: 20px; }
-    .footer-links a { color: var(--muted); transition: color .3s ease; }
-    .footer-links a:hover { color: var(--ink); }
+    .footer-bottom a { color: rgba(255,255,255,.35); transition: color .3s ease; }
+    .footer-bottom a:hover { color: rgba(255,255,255,.7); }
+    .footer-bottom-links { display: flex; gap: 18px; }
+    @media (max-width: 980px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+    }
+    @media (max-width: 620px) {
+      .footer-grid { grid-template-columns: 1fr; }
+    }
 
     .sticky-mobile {
       display: none;
@@ -696,7 +886,8 @@
       .hero-grid, .split, .zone-grid, .contact-box { grid-template-columns: 1fr; }
       .hero { padding-top: 112px; }
       .hero-card, .hero-card img { min-height: 540px; height: 62vh; }
-      .cards, .proof-grid, .cities, .who-grid, .testimonial-grid { grid-template-columns: 1fr; }
+      .cards, .proof-grid, .cities, .testimonial-grid { grid-template-columns: 1fr; }
+      .who-grid { grid-template-columns: repeat(2, 1fr); }
       .proof-grid { gap: 14px; }
       .zone-box { padding: 34px; border-radius: 36px; }
       .contact-copy { padding: 34px; }
@@ -730,15 +921,7 @@
   <nav class="nav">
     <div class="nav-inner">
       <a href="#top" class="brand">
-        <svg class="brand-logo" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M32 10C22 19 18 28 18 38C18 48 24 54 32 54C40 54 46 48 46 38C46 28 42 19 32 10Z" stroke="#D77C8C" stroke-width="1.8"/>
-          <path d="M32 8V56" stroke="#D77C8C" stroke-width="1.4" stroke-linecap="round"/>
-          <path d="M22 44C26 40 28 34 28 26" stroke="#7E9F8C" stroke-width="1.4" stroke-linecap="round"/>
-        </svg>
-        <div class="brand-copy">
-          <span class="brand-name">Blandine</span>
-          <span class="brand-sub">Pilates</span>
-        </div>
+        <img src="logo.png" alt="Bland in flow" style="height:70px; width:auto; display:block;" />
       </a>
       <div class="nav-links">
         <a href="#approche">Approche</a>
@@ -760,15 +943,17 @@
       </div>
       <div class="container hero-grid">
         <div>
-          <div class="eyebrow"><span class="dot"></span> Pilates privé • Lausanne • Pontarlier • Malbuisson</div>
-          <h1>Retrouver son corps. <span class="green">Respirer à nouveau.</span></h1>
-          <p>Des cours particuliers de <span style="color:var(--rose);font-weight:800;font-style:italic;">Pilates</span> pour retrouver confiance, mobilité et stabilité dans un quotidien qui va trop vite.</p>
+          <div class="eyebrow"><span class="dot"></span> Haut-Doubs • Nord Vaudois • En entreprise</div>
+          <h1>Le mouvement en douceur, <span class="green">la force en profondeur.</span></h1>
+          <p>Cours privés, semi-privés et collectifs en entreprise dans le Haut-Doubs et le Nord Vaudois.</p>
+          <p style="margin-top:14px;">Une approche inspirée de la méthode de <span style="color:var(--rose);font-weight:800;font-style:italic;">Joseph Pilates</span> mêlant mobilité, posture, respiration et renforcement profond.</p>
           <div class="hero-actions">
             <a href="#contact" class="btn btn-dark">Demander un premier échange <span class="arrow">→</span></a>
             <a href="#approche" class="btn btn-light">Découvrir l’approche <span class="arrow">→</span></a>
           </div>
           <div class="trust-row">
-            <span class="pill">✓ 12+ ans d’accompagnement</span>
+            <span class="pill">⏱ 50 minutes pour toi</span>
+            <span class="pill">✓ 5+ ans d’accompagnement</span>
             <span class="pill">✓ Séance 100% personnalisée</span>
             <span class="pill">✓ Sans jugement</span>
           </div>
@@ -794,7 +979,7 @@
     <div class="marquee-wrap">
       <div class="marquee">
         <div class="marquee-items">
-          <span>Confiance</span><span>Respiration</span><span>Posture</span><span>Mobilité</span><span>Acceptation</span><span>Stabilité</span>
+          <span>Cours privés</span><span>Cours semi-privés</span><span>À domicile</span><span>Haut-Doubs</span><span>Nord Vaudois</span><span>50 minutes pour toi</span><span>Certifiée méthode Joseph Pilates</span><span>Entreprises & hôtels</span>
         </div>
       </div>
     </div>
@@ -843,7 +1028,10 @@
         <div class="reveal">
           <p class="kicker">Pourquoi Blandine</p>
           <h2>Une présence rassurante, une exigence précise.</h2>
-          <p>Plus de 12 ans d’expérience dans l’accompagnement, plusieurs années de Pilates de très bon niveau, et une approche centrée sur la personne avant la méthode.</p>
+          <div style="display:inline-flex; align-items:center; gap:8px; padding:8px 16px; border-radius:999px; background:var(--sage-light); color:var(--petrol); font-size:12px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; margin-bottom:16px;">
+            <span style="color:var(--sage);">✦</span> Certifiée méthode Joseph Pilates
+          </div>
+          <p>Plus de 5 ans d’expérience dans l’accompagnement Pilates, une pratique intensive de haut niveau, et une approche centrée sur la personne avant la méthode.</p>
           <div class="checks">
             <div class="check"><span>✓</span> Séance privée sur-mesure</div>
             <div class="check"><span>✓</span> À domicile ou lieu choisi</div>
@@ -873,11 +1061,6 @@
             <p>Stress, surcharge mentale, fatigue physique et besoin de retrouver un équilibre durable.</p>
           </div>
 
-          <div class="who-card reveal">
-            <div class="icon">♡</div>
-            <h3>Post-partum</h3>
-            <p>Retrouver confiance dans son corps avec douceur, sécurité et progression adaptée.</p>
-          </div>
 
           <div class="who-card reveal">
             <div class="icon">↺</div>
@@ -889,6 +1072,18 @@
             <div class="icon">☼</div>
             <h3>Bien-être global</h3>
             <p>Pour ralentir, respirer davantage et retrouver une présence plus apaisée au quotidien.</p>
+          </div>
+
+          <div class="who-card reveal">
+            <div class="icon">⌂</div>
+            <h3>Entreprises</h3>
+            <p>Cours collectifs Pilates pour vos équipes  un moment de bien-être et de reconnexion au corps au cœur du travail.</p>
+          </div>
+
+          <div class="who-card reveal">
+            <div class="icon">✧</div>
+            <h3>Hôtels</h3>
+            <p>Une expérience Pilates premium à offrir à vos clients  en salle, en extérieur, sur mesure selon votre établissement.</p>
           </div>
         </div>
 
@@ -927,48 +1122,58 @@
       <div class="offers-scroll-zone">
         <div class="offers-sticky-inner">
           <div class="offers-image-col">
-            <img src="/mnt/data/Image_20260511_125516_944.png" alt="Blandine Pilates" />
+            <img src="/mnt/data/Image_20260511_125516_944.png" alt="Bland In Flow" />
             <div class="offers-tabs">
-              <button class="offer-tab active" data-offer-btn="0">Séance unique</button>
-              <button class="offer-tab" data-offer-btn="1">Suivi régulier</button>
-              <button class="offer-tab" data-offer-btn="2">Pack intensif</button>
+              <button class="offer-tab active" data-offer-btn="0">Particuliers</button>
+              <button class="offer-tab" data-offer-btn="1">Événements</button>
+              <button class="offer-tab" data-offer-btn="2">Professionnels</button>
             </div>
             <div class="offers-image-overlay">
-              <p class="kicker" style="color:rgba(255,255,255,.65); margin-bottom:8px;">Pilates privé</p>
-              <h2 style="color:white; font-size:clamp(24px,2.4vw,38px); margin:0;">Choisissez votre formule.</h2>
+              <p class="kicker" style="color:rgba(255,255,255,.65); margin-bottom:8px;">Bland In Flow</p>
+              <h2 style="color:white; font-size:clamp(24px,2.4vw,38px); margin:0;">Une formule pour chaque besoin.</h2>
             </div>
           </div>
           <div class="offers-cards-col">
             <div class="offer-card light">
-              <span class="offer-card-tag">Découverte</span>
-              <h3>Séance unique</h3>
-              <p>Un premier rendez-vous pour se rencontrer, explorer vos besoins et ressentir l'approche Pilates de Blandine sans engagement.</p>
-              <div class="offer-card-price-block">
-                <span class="offer-card-amount">80 CHF</span>
-                <span class="offer-card-unit">/ séance</span>
+              <span class="offer-card-tag">Particuliers</span>
+              <h3>Cours à domicile</h3>
+              <p>Des séances individuelles ou en duo, dans votre espace, à votre rythme. Uniquement dans le Haut-Doubs.</p>
+              <div style="margin-top:28px; display:flex; flex-direction:column; gap:16px;">
+                <div>
+                  <div class="offer-card-price-block">
+                    <span class="offer-card-amount">30 €</span>
+                    <span class="offer-card-unit">/ séance</span>
+                  </div>
+                  <div class="offer-card-sub">Cours privé · 1 personne · À domicile · Haut-Doubs</div>
+                </div>
+                <div>
+                  <div class="offer-card-price-block">
+                    <span class="offer-card-amount">40 €</span>
+                    <span class="offer-card-unit">/ séance</span>
+                  </div>
+                  <div class="offer-card-sub">Cours semi-privé · 2 personnes · À domicile · Haut-Doubs</div>
+                </div>
               </div>
-              <div class="offer-card-sub">1h · À domicile ou lieu choisi</div>
               <div class="offer-card-cta"><a href="#contact" class="btn btn-light">Réserver <span class="arrow">→</span></a></div>
             </div>
             <div class="offer-card dark">
-              <span class="offer-card-tag">Le plus choisi</span>
-              <h3>Suivi régulier</h3>
-              <p>Un accompagnement structuré sur plusieurs semaines, avec progression adaptée et suivi personnalisé à chaque séance.</p>
-              <div class="offer-card-price-block">
-                <span class="offer-card-amount">70 CHF</span>
-                <span class="offer-card-unit">/ séance</span>
-              </div>
-              <div class="offer-card-sub">Pack 10 séances · Lausanne · Pontarlier · Malbuisson</div>
-              <div class="offer-card-cta"><a href="#contact" class="btn btn-light">Réserver <span class="arrow">→</span></a></div>
-            </div>
-            <div class="offer-card ink">
-              <span class="offer-card-tag">Sur mesure</span>
-              <h3>Pack intensif</h3>
-              <p>Pour aller plus vite et plus loin - idéal après une blessure, un post-partum ou pour préparer un objectif sportif précis.</p>
-              <div class="offer-card-price-block">
+              <span class="offer-card-tag">Événements</span>
+              <h3>EVJF, anniversaires & collectifs</h3>
+              <p>Offrez une expérience Pilates unique pour vos moments forts  EVJF, anniversaires, séminaires bien-être ou tout autre événement en groupe.</p>
+              <div class="offer-card-price-block" style="margin-top:28px;">
                 <span class="offer-card-devis">Sur devis</span>
               </div>
-              <div class="offer-card-sub">Fréquence et durée adaptées à votre objectif</div>
+              <div class="offer-card-sub">Tarif personnalisé selon le nombre de personnes et le lieu</div>
+              <div class="offer-card-cta"><a href="#contact" class="btn btn-light">Demander un devis <span class="arrow">→</span></a></div>
+            </div>
+            <div class="offer-card ink">
+              <span class="offer-card-tag">Professionnels</span>
+              <h3>Hôtels & entreprises</h3>
+              <p>Des cours collectifs Pilates pour offrir une expérience bien-être à vos employés ou à vos clients. Intervenant dans le Nord Vaudois.</p>
+              <div class="offer-card-price-block" style="margin-top:28px;">
+                <span class="offer-card-devis">Sur devis</span>
+              </div>
+              <div class="offer-card-sub">Hôtels · Entreprises · Nord Vaudois · Format adapté</div>
               <div class="offer-card-cta"><a href="#contact" class="btn btn-dark">Nous contacter <span class="arrow">→</span></a></div>
             </div>
           </div>
@@ -979,21 +1184,51 @@
 
     <section id="zones">
       <div class="container">
-        <div class="zone-box reveal">
-          <div class="zone-grid">
-            <div>
-              <p class="kicker">Disponible dans la zone</p>
-              <h2>Lausanne, Pontarlier, Malbuisson.</h2>
-              <div style="margin-top:30px;">
-                <a href="#contact" class="btn btn-green">Vérifier une disponibilité <span class="arrow">→</span></a>
+        <div class="zone-map-fullbox reveal">
+
+          <!-- 2/3 gauche : carte -->
+          <div class="zone-right">
+            <div id="zone-map"></div>
+            <div class="zone-map-controls">
+              <div id="zone-result" class="zone-result"></div>
+              <div class="zone-search-wrap">
+                <input id="zone-address" type="text" class="zone-search-input" placeholder="Votre adresse…" />
+                <button id="zone-search-btn" class="zone-search-btn">Vérifier</button>
               </div>
-            </div>
-            <div class="cities">
-              <div class="city"><div>⌖</div><h3>Lausanne</h3><p>Cours privés, accompagnement sur mesure, rythme adapté.</p></div>
-              <div class="city"><div>⌖</div><h3>Pontarlier</h3><p>Cours privés, accompagnement sur mesure, rythme adapté.</p></div>
-              <div class="city"><div>⌖</div><h3>Malbuisson</h3><p>Cours privés, accompagnement sur mesure, rythme adapté.</p></div>
+              <button id="zone-recenter-btn" class="zone-recenter-btn">⊙ Recentrer</button>
             </div>
           </div>
+
+          <!-- 1/3 droite : texte -->
+          <div class="zone-left">
+            <div>
+              <p class="kicker">Disponible dans la zone</p>
+              <h2>Haut-Doubs &amp; Nord Vaudois.</h2>
+            </div>
+            <div class="zone-chips">
+              <div class="zone-chip">
+                <span class="zone-chip-icon">🇫🇷</span>
+                <div>
+                  <strong>Haut-Doubs</strong>
+                  <span>Mouthe · Malbuisson · Pontarlier<br>Cours à domicile</span>
+                </div>
+              </div>
+              <div class="zone-chip">
+                <span class="zone-chip-icon">🇨🇭</span>
+                <div>
+                  <strong>Nord Vaudois</strong>
+                  <span>Le Brassus · Yverdon · Lausanne<br>Entreprises &amp; hôtels</span>
+                </div>
+              </div>
+            </div>
+            <a href="#contact" class="btn btn-green" style="margin-top:auto;">Vérifier une disponibilité <span class="arrow">→</span></a>
+          </div>
+
+          <!-- Note bas de bloc -->
+          <div class="zone-note">
+            💼 Pour les professionnels hors zone, selon la distance, une discussion reste possible. <a href="#contact">Contactez-moi →</a>
+          </div>
+
         </div>
       </div>
     </section>
@@ -1043,7 +1278,7 @@
             <h2>Un échange simple, sans pression.</h2>
             <p>Expliquez votre besoin. Blandine vous répond pour voir le format le plus juste : séance découverte, accompagnement ponctuel ou suivi régulier.</p>
             <div class="contact-actions">
-              <a href="mailto:contact@blandine-pilates.com?subject=Demande%20de%20premier%20%C3%A9change%20Pilates" class="btn btn-dark">Écrire à Blandine <span class="arrow">→</span></a>
+              <a href="mailto:blandine.boillon@icloud.com" class="btn btn-dark">Écrire à Blandine <span class="arrow">→</span></a>
               <a href="tel:+33000000000" class="btn btn-light">Appeler</a>
             </div>
           </div>
@@ -1060,12 +1295,83 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <span>© 2026 Blandine Pilates - Tous droits réservés</span>
-      <div class="footer-links">
-        <a href="mentions-legales.html">Mentions légales</a>
-        <a href="politique-de-confidentialite.html">Politique de confidentialité</a>
-        <a href="mailto:contact@blandine-pilates.com">contact@blandine-pilates.com</a>
+    <div class="container">
+      <div class="footer-grid">
+
+        <!-- Philosophie du mouvement -->
+        <div class="footer-col">
+          <p class="footer-col-title">Philosophie du mouvement</p>
+          <p class="footer-quote">« Le corps n'est pas un problème à corriger. C'est un allié à écouter, renforcer et libérer. »</p>
+          <p>Chaque personne arrive avec son histoire, ses tensions, ses objectifs. La pratique s'adapte  jamais l'inverse.</p>
+          <p>Pilates pour se remettre en forme en douceur, se tonifier en profondeur, compléter une pratique sportive, retrouver son corps après l'accouchement, ou simplement respirer mieux au quotidien.</p>
+          <p style="font-size:12px; color:rgba(255,255,255,.4); margin-top:6px;">⚠ Les femmes enceintes ne sont pas acceptées en séance.</p>
+        </div>
+
+        <!-- Formules -->
+        <div class="footer-col">
+          <p class="footer-col-title">Formules</p>
+          <div class="footer-formule">
+            <div class="footer-formule-item">
+              <strong>Cours privé : 30 €</strong>
+              <span>1 personne · À domicile · Haut-Doubs</span>
+            </div>
+            <div class="footer-formule-item">
+              <strong>Cours semi-privé : 40 €</strong>
+              <span>2 personnes · À domicile · Haut-Doubs</span>
+            </div>
+            <div class="footer-formule-item">
+              <strong>Événements : Sur devis</strong>
+              <span>EVJF, anniversaires, collectifs · Selon lieu & effectif</span>
+            </div>
+            <div class="footer-formule-item">
+              <strong>Professionnels : Sur devis</strong>
+              <span>Hôtels, entreprises · Nord Vaudois</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mon histoire -->
+        <div class="footer-col">
+          <p class="footer-col-title">Mon histoire</p>
+          <p>Blandine Boillon, professeure de Pilates passionnée par le mouvement conscient et la reconnexion au corps.</p>
+          <p>Après plusieurs années de pratique intensive et de formation, elle développe une approche centrée sur la personne  bienveillante, précise, et profondément adaptée à chacun.</p>
+          <p>Elle intervient dans le Haut-Doubs et le Nord Vaudois, à domicile ou dans vos locaux.</p>
+        </div>
+
+        <!-- Me contacter -->
+        <div class="footer-col">
+          <p class="footer-col-title">Me contacter</p>
+          <a href="mailto:blandine.boillon@icloud.com" class="footer-contact-link">
+            <span class="footer-contact-icon">✉</span>
+            blandine.boillon@icloud.com
+          </a>
+          <a href="tel:0602602110" class="footer-contact-link">
+            <span class="footer-contact-icon">☎</span>
+            06 02 60 21 10
+          </a>
+          <a href="https://www.instagram.com/blandinflow/" target="_blank" rel="noopener" class="footer-contact-link">
+            <span class="footer-contact-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="2" width="20" height="20" rx="5.5" stroke="currentColor" stroke-width="1.8"/>
+                <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.8"/>
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+              </svg>
+            </span>
+            @blandinflow
+          </a>
+          <p style="margin-top:18px; font-size:13px;">Haut-Doubs & Nord Vaudois<br>Cours à domicile · Événements · Entreprises</p>
+          <div style="margin-top:24px;">
+            <a href="#contact" class="btn btn-dark" style="width:100%; justify-content:center;">Prendre contact <span class="arrow">→</span></a>
+          </div>
+        </div>
+
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Bland In Flow  Tous droits réservés</span>
+        <div class="footer-bottom-links">
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="politique-de-confidentialite.html">Politique de confidentialité</a>
+        </div>
       </div>
     </div>
   </footer>
@@ -1140,5 +1446,87 @@
 
     document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
   </script>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    (function () {
+      if (!document.getElementById('zone-map')) return;
+
+      const CENTER = [46.72, 6.38];
+      const ZOOM = 9;
+
+      const map = L.map('zone-map', {
+        center: CENTER,
+        zoom: ZOOM,
+        zoomControl: true,
+        scrollWheelZoom: false
+      });
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© <a href="https://www.openstreetmap.org">OpenStreetMap</a>',
+        maxZoom: 18
+      }).addTo(map);
+
+      const zoneStyle = { color: '#93AF82', fillColor: '#93AF82', fillOpacity: 0.22, weight: 2 };
+      L.circle([46.90, 6.35], Object.assign({}, zoneStyle, { radius: 22000 })).addTo(map).bindPopup('Haut-Doubs  Mouthe à Pontarlier');
+      L.circle([46.62, 6.57], Object.assign({}, zoneStyle, { radius: 38000 })).addTo(map).bindPopup('Nord Vaudois  Le Brassus, Lausanne, Yverdon');
+
+      document.getElementById('zone-recenter-btn').addEventListener('click', function () {
+        map.setView(CENTER, ZOOM);
+      });
+
+      function dist(lat1, lon1, lat2, lon2) {
+        var R = 6371000, r = Math.PI / 180;
+        var dLat = (lat2 - lat1) * r, dLon = (lon2 - lon1) * r;
+        var a = Math.sin(dLat/2)*Math.sin(dLat/2) + Math.cos(lat1*r)*Math.cos(lat2*r)*Math.sin(dLon/2)*Math.sin(dLon/2);
+        return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+      }
+
+      function isEligible(lat, lon) {
+        return dist(lat, lon, 46.90, 6.35) <= 22000 || dist(lat, lon, 46.62, 6.57) <= 38000;
+      }
+
+      var marker = null;
+
+      function checkAddress() {
+        var addr = document.getElementById('zone-address').value.trim();
+        if (!addr) return;
+        var result = document.getElementById('zone-result');
+        result.className = 'zone-result loading';
+        result.textContent = 'Recherche en cours…';
+
+        fetch('https://nominatim.openstreetmap.org/search?format=json&q=' + encodeURIComponent(addr) + '&limit=1')
+          .then(function(r) { return r.json(); })
+          .then(function(data) {
+            if (!data.length) {
+              result.className = 'zone-result not-eligible';
+              result.textContent = 'Adresse introuvable. Essayez avec plus de détails.';
+              return;
+            }
+            var lat = parseFloat(data[0].lat), lon = parseFloat(data[0].lon);
+            if (marker) map.removeLayer(marker);
+            marker = L.marker([lat, lon]).addTo(map);
+            map.setView([lat, lon], 12);
+            if (isEligible(lat, lon)) {
+              result.className = 'zone-result eligible';
+              result.textContent = '✓ Cette adresse est dans la zone d\'intervention !';
+            } else {
+              result.className = 'zone-result not-eligible';
+              result.textContent = '✗ Cette adresse est hors zone pour le moment. Contactez-moi pour en discuter.';
+            }
+          })
+          .catch(function() {
+            result.className = 'zone-result not-eligible';
+            result.textContent = 'Erreur de connexion. Réessayez.';
+          });
+      }
+
+      document.getElementById('zone-search-btn').addEventListener('click', checkAddress);
+      document.getElementById('zone-address').addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') checkAddress();
+      });
+    })();
+  </script>
 </body>
 </html>
+
