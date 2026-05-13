@@ -7,7 +7,23 @@
       "Bash(git -C 'c:\\\\Users\\\\Matis\\\\Desktop\\\\blandine-site' commit -m ' *)",
       "Bash(git -C \"c:\\\\Users\\\\Matis\\\\Desktop\\\\blandine-site\" add mentions-legales.html politique-de-confidentialite.html index.html)",
       "Bash(git -C \"c:\\\\Users\\\\Matis\\\\Desktop\\\\blandine-site\" add -A)",
-      "Bash(git -C \"c:\\\\Users\\\\Matis\\\\Desktop\\\\blandine-site\" status)"
+      "Bash(git -C \"c:\\\\Users\\\\Matis\\\\Desktop\\\\blandine-site\" status)",
+      "WebFetch(domain:overpass-api.de)",
+      "WebFetch(domain:www.hotellalande.com)",
+      "WebFetch(domain:www.hotellalande.ch)",
+      "WebFetch(domain:www.rocheray.ch)",
+      "WebFetch(domain:www.lausanne-palace.ch)",
+      "WebFetch(domain:www.chateaudouchy.ch)",
+      "WebFetch(domain:www.destination-haut-doubs.com)",
+      "WebFetch(domain:yverdonlesbainsregion.ch)",
+      "WebFetch(domain:www.hotels-yverdon-region.ch)",
+      "WebSearch",
+      "WebFetch(domain:www.myvalleedejoux.ch)",
+      "WebFetch(domain:www.latelierdedonat.com)",
+      "WebFetch(domain:pontarlier.kyriad.com)",
+      "WebFetch(domain:www.hoteldeshorlogers.com)",
+      "WebFetch(domain:royalsavoylausanne.com)",
+      "WebFetch(domain:tulip-inn-lausanne.goldentulip.com)"
     ]
   }
 }
