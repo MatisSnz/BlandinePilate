@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git -C \"c:\\\\Users\\\\Matis\\\\Desktop\\\\blandine-site\" diff --stat HEAD)",
+      "Bash(git -C \"c:\\\\Users\\\\Matis\\\\Desktop\\\\blandine-site\" checkout -- index.html)"
+    ]
+  }
+}

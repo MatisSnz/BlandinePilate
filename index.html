@@ -73,12 +73,12 @@
     .orb.three { width: 360px; height: 360px; right: 12%; bottom: -170px; background: rgba(31,79,89,.10); }
 
     @keyframes breathe {
-      0%,100% { transform: translate3d(0,0,0) scale(1); }
-      50% { transform: translate3d(20px,-25px,0) scale(1.08); }
+      0%,100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
     }
     @keyframes breathe2 {
-      0%,100% { transform: translate3d(0,0,0) scale(1); }
-      50% { transform: translate3d(-24px,18px,0) scale(.94); }
+      0%,100% { transform: scale(1); }
+      50% { transform: scale(.94); }
     }
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(28px); }
@@ -200,8 +200,7 @@
       height: 100%;
       object-fit: cover;
       filter: saturate(.82) contrast(.92) brightness(1.08);
-      opacity: 0;
-      transition: opacity .18s linear;
+      opacity: 0.82;
     }
     .hero-video::after {
       content: "";
@@ -492,11 +491,121 @@
       font-weight: 700;
       color: var(--ink);
     }
-    .proof { padding: 26px; border: 1px solid rgba(31,79,89,.10); border-radius: 28px; background: rgba(255,255,255,.68); transition: .5s ease; }
-    .proof:hover { transform: translateY(-5px); background: white; }
-    .proof .mini { color: var(--sage); font-size: 24px; margin-bottom: 18px; }
-    .proof h3 { margin: 0; }
-    .proof p { color: var(--muted); font-size: 14px; line-height: 1.65; }
+    .offers-section { padding-top: 112px; }
+    .offers-scroll-zone { position: relative; }
+    .offers-sticky-inner {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+      box-shadow: 0 42px 120px rgba(31,79,89,.18);
+    }
+    .offers-image-col {
+      position: relative;
+      overflow: hidden;
+    }
+    .offers-image-col img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .offers-image-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,18,18,.72), transparent 55%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 42px;
+    }
+    .offers-cards-col {
+      position: relative;
+      overflow: hidden;
+    }
+    .offer-card {
+      position: absolute;
+      inset: 0;
+      padding: 60px 52px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      transform: translateY(100%);
+      transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .offer-card:nth-child(1) { z-index: 1; }
+    .offer-card:nth-child(2) { z-index: 2; }
+    .offer-card:nth-child(3) { z-index: 3; }
+    .offer-card.is-active { transform: translateY(0); }
+    .offer-card.light { background: #f0f4f1; color: var(--ink); }
+    .offer-card.dark { background: var(--petrol); color: white; }
+    .offer-card.ink { background: var(--ink); color: white; }
+    .offer-card-tag {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      width: fit-content;
+    }
+    .offer-card.light .offer-card-tag { background: rgba(31,79,89,.12); color: var(--petrol); }
+    .offer-card.dark .offer-card-tag { background: rgba(255,255,255,.15); color: rgba(255,255,255,.85); }
+    .offer-card.ink .offer-card-tag { background: rgba(215,124,140,.22); color: var(--rose); }
+    .offer-card h3 { margin: 0 0 16px; font-size: clamp(26px, 2.5vw, 36px); letter-spacing: -.04em; }
+    .offer-card p { margin: 0; font-size: 16px; line-height: 1.8; opacity: .78; max-width: 400px; }
+    .offer-card-price-block { margin-top: 28px; display: flex; align-items: baseline; gap: 8px; }
+    .offer-card-amount { font-size: 42px; font-weight: 800; letter-spacing: -.04em; line-height: 1; }
+    .offer-card-unit { font-size: 14px; font-weight: 600; opacity: .6; }
+    .offer-card-devis { font-size: 18px; font-weight: 700; opacity: .55; font-style: italic; }
+    .offer-card-sub { margin-top: 6px; font-size: 12px; font-weight: 600; opacity: .45; }
+    .offer-card-cta { margin-top: 32px; }
+    .offers-spacer { height: 112px; }
+    .offers-tabs {
+      position: absolute;
+      top: 20%;
+      left: 22px;
+      right: 22px;
+      z-index: 10;
+      display: flex;
+      gap: 8px;
+    }
+    .offer-tab {
+      flex: 1;
+      padding: 9px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.22);
+      background: rgba(0,0,0,.42);
+      backdrop-filter: blur(14px);
+      color: rgba(255,255,255,.9);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background .3s ease, color .3s ease, border-color .3s ease;
+      text-align: center;
+    }
+    .offer-tab:hover {
+      background: rgba(0,0,0,.62);
+      color: white;
+    }
+    .offer-tab.active {
+      background: var(--rose);
+      color: white;
+      border-color: transparent;
+    }
+    @media (max-width: 980px) {
+      .offers-sticky-inner { grid-template-columns: 1fr; height: auto; position: relative; }
+      .offers-image-col { height: 320px; }
+      .offers-cards-col { position: relative; min-height: 480px; }
+      .offer-card { position: relative; transform: none; padding: 40px 32px; }
+      .offer-card:nth-child(n) { z-index: auto; }
+    }
 
     .zone-box {
       background: var(--petrol);
@@ -550,6 +659,24 @@
     .contact-note { position:absolute; left:24px; right:24px; bottom:24px; z-index:2; background:rgba(255,255,255,.58); backdrop-filter:blur(18px); padding:20px; border-radius:26px; }
     .contact-note strong { display:block; }
     .contact-note span { display:block; margin-top:5px; color:#3E4B47; font-size:14px; line-height:1.55; }
+
+    .site-footer {
+      border-top: 1px solid rgba(31,79,89,.10);
+      padding: 28px 0;
+      background: var(--cream);
+    }
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { color: var(--muted); transition: color .3s ease; }
+    .footer-links a:hover { color: var(--ink); }
 
     .sticky-mobile {
       display: none;
@@ -616,6 +743,7 @@
       <div class="nav-links">
         <a href="#approche">Approche</a>
         <a href="#preuves">Pourquoi</a>
+        <a href="#offres">Offres</a>
         <a href="#zones">Lieux</a>
         <a href="#contact">Contact</a>
       </div>
@@ -626,7 +754,7 @@
   <main>
     <section class="hero" id="top">
       <div class="hero-video" aria-hidden="true">
-        <video id="ambientHeroVideo" muted playsinline preload="metadata">
+        <video muted playsinline preload="metadata" loop autoplay>
           <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260328_083109_283f3553-e28f-428b-a723-d639c617eb2b.mp4" type="video/mp4" />
         </video>
       </div>
@@ -634,7 +762,7 @@
         <div>
           <div class="eyebrow"><span class="dot"></span> Pilates privé • Lausanne • Pontarlier • Malbuisson</div>
           <h1>Retrouver son corps. <span class="green">Respirer à nouveau.</span></h1>
-          <p>Des cours particuliers de Pilates pour retrouver confiance, mobilité et stabilité dans un quotidien qui va trop vite.</p>
+          <p>Des cours particuliers de <span style="color:var(--rose);font-weight:800;font-style:italic;">Pilates</span> pour retrouver confiance, mobilité et stabilité dans un quotidien qui va trop vite.</p>
           <div class="hero-actions">
             <a href="#contact" class="btn btn-dark">Demander un premier échange <span class="arrow">→</span></a>
             <a href="#approche" class="btn btn-light">Découvrir l’approche <span class="arrow">→</span></a>
@@ -789,13 +917,64 @@
       </div>
     </section>
 
-    <section class="section-pad">
-      <div class="container proof-grid">
-        <div class="proof reveal"><div class="mini">✦</div><h3>Premium</h3><p>Un cadre calme, élégant et confidentiel.</p></div>
-        <div class="proof reveal"><div class="mini">◌</div><h3>Sécurisant</h3><p>Adapté à votre niveau, vos limites et vos objectifs.</p></div>
-        <div class="proof reveal"><div class="mini">↻</div><h3>Flexible</h3><p>Créneaux pensés autour de votre rythme.</p></div>
-        <div class="proof reveal"><div class="mini">♡</div><h3>Humain</h3><p>Un vrai échange avant toute séance.</p></div>
+    <section class="offers-section" id="offres">
+      <div class="container">
+        <div class="center reveal" style="margin-bottom: 54px;">
+          <p class="kicker">Mes offres</p>
+          <h2>Mes 3 forfaits d'accompagnement.</h2>
+        </div>
       </div>
+      <div class="offers-scroll-zone">
+        <div class="offers-sticky-inner">
+          <div class="offers-image-col">
+            <img src="/mnt/data/Image_20260511_125516_944.png" alt="Blandine Pilates" />
+            <div class="offers-tabs">
+              <button class="offer-tab active" data-offer-btn="0">Séance unique</button>
+              <button class="offer-tab" data-offer-btn="1">Suivi régulier</button>
+              <button class="offer-tab" data-offer-btn="2">Pack intensif</button>
+            </div>
+            <div class="offers-image-overlay">
+              <p class="kicker" style="color:rgba(255,255,255,.65); margin-bottom:8px;">Pilates privé</p>
+              <h2 style="color:white; font-size:clamp(24px,2.4vw,38px); margin:0;">Choisissez votre formule.</h2>
+            </div>
+          </div>
+          <div class="offers-cards-col">
+            <div class="offer-card light">
+              <span class="offer-card-tag">Découverte</span>
+              <h3>Séance unique</h3>
+              <p>Un premier rendez-vous pour se rencontrer, explorer vos besoins et ressentir l'approche Pilates de Blandine sans engagement.</p>
+              <div class="offer-card-price-block">
+                <span class="offer-card-amount">80 CHF</span>
+                <span class="offer-card-unit">/ séance</span>
+              </div>
+              <div class="offer-card-sub">1h · À domicile ou lieu choisi</div>
+              <div class="offer-card-cta"><a href="#contact" class="btn btn-light">Réserver <span class="arrow">→</span></a></div>
+            </div>
+            <div class="offer-card dark">
+              <span class="offer-card-tag">Le plus choisi</span>
+              <h3>Suivi régulier</h3>
+              <p>Un accompagnement structuré sur plusieurs semaines, avec progression adaptée et suivi personnalisé à chaque séance.</p>
+              <div class="offer-card-price-block">
+                <span class="offer-card-amount">70 CHF</span>
+                <span class="offer-card-unit">/ séance</span>
+              </div>
+              <div class="offer-card-sub">Pack 10 séances · Lausanne · Pontarlier · Malbuisson</div>
+              <div class="offer-card-cta"><a href="#contact" class="btn btn-light">Réserver <span class="arrow">→</span></a></div>
+            </div>
+            <div class="offer-card ink">
+              <span class="offer-card-tag">Sur mesure</span>
+              <h3>Pack intensif</h3>
+              <p>Pour aller plus vite et plus loin - idéal après une blessure, un post-partum ou pour préparer un objectif sportif précis.</p>
+              <div class="offer-card-price-block">
+                <span class="offer-card-devis">Sur devis</span>
+              </div>
+              <div class="offer-card-sub">Fréquence et durée adaptées à votre objectif</div>
+              <div class="offer-card-cta"><a href="#contact" class="btn btn-dark">Nous contacter <span class="arrow">→</span></a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="offers-spacer"></div>
     </section>
 
     <section id="zones">
@@ -803,7 +982,7 @@
         <div class="zone-box reveal">
           <div class="zone-grid">
             <div>
-              <p class="kicker">Entre lac et montagne</p>
+              <p class="kicker">Disponible dans la zone</p>
               <h2>Lausanne, Pontarlier, Malbuisson.</h2>
               <div style="margin-top:30px;">
                 <a href="#contact" class="btn btn-green">Vérifier une disponibilité <span class="arrow">→</span></a>
@@ -880,36 +1059,62 @@
     </section>
   </main>
 
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>© 2026 Blandine Pilates - Tous droits réservés</span>
+      <div class="footer-links">
+        <a href="#">Mentions légales</a>
+        <a href="#">Politique de confidentialité</a>
+        <a href="mailto:contact@blandine-pilates.com">contact@blandine-pilates.com</a>
+      </div>
+    </div>
+  </footer>
+
   <div class="sticky-mobile">
     <a href="#contact" class="btn btn-dark">Réserver un premier échange <span class="arrow">→</span></a>
   </div>
 
   <script>
-    const video = document.getElementById('ambientHeroVideo');
-    if (video) {
-      let rafId;
-      const fadeDuration = 0.5;
-      const tick = () => {
-        if (video.duration && !Number.isNaN(video.duration)) {
-          const t = video.currentTime;
-          const d = video.duration;
-          let opacity = 1;
-          if (t < fadeDuration) opacity = t / fadeDuration;
-          if (d - t < fadeDuration) opacity = Math.max(0, (d - t) / fadeDuration);
-          video.style.opacity = String(Math.min(.82, opacity));
-        }
-        rafId = requestAnimationFrame(tick);
-      };
-      video.addEventListener('ended', () => {
-        video.style.opacity = '0';
-        setTimeout(() => {
-          video.currentTime = 0;
-          video.play().catch(() => {});
-        }, 100);
+    (function () {
+      const zone = document.querySelector('.offers-scroll-zone');
+      if (!zone) return;
+      const cards = Array.from(zone.querySelectorAll('.offer-card'));
+      const tabs = Array.from(zone.querySelectorAll('[data-offer-btn]'));
+      const n = cards.length;
+
+      zone.style.height = ((n + 1) * 100) + 'vh';
+
+      function update() {
+        const rect = zone.getBoundingClientRect();
+        const scrolled = -rect.top;
+        const cardScrollable = (n - 1) * window.innerHeight;
+        if (cardScrollable <= 0) return;
+        const progress = Math.max(0, Math.min(1, scrolled / cardScrollable));
+        const idx = progress * (n - 1);
+        const activeIdx = Math.min(Math.floor(idx), n - 1);
+
+        cards.forEach(function (card, i) {
+          card.classList.toggle('is-active', idx >= i);
+        });
+        tabs.forEach(function (tab, i) {
+          tab.classList.toggle('active', i === activeIdx);
+        });
+      }
+
+      tabs.forEach(function (tab, i) {
+        tab.addEventListener('click', function () {
+          const zoneTop = zone.getBoundingClientRect().top + window.scrollY;
+          const cardScrollable = (n - 1) * window.innerHeight;
+          const targetProgress = i === 0 ? 0 : i / (n - 1) + 0.02;
+          const targetScroll = zoneTop + Math.min(targetProgress, 1) * cardScrollable;
+          window.scrollTo({ top: targetScroll, behavior: 'smooth' });
+        });
       });
-      video.play().catch(() => {});
-      tick();
-    }
+
+      window.addEventListener('scroll', update, { passive: true });
+      window.addEventListener('resize', update);
+      update();
+    })();
 
     document.fonts.ready.then(function () {
       const track = document.querySelector('.marquee');
