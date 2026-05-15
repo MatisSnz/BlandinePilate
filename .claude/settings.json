@@ -23,7 +23,8 @@
       "WebFetch(domain:pontarlier.kyriad.com)",
       "WebFetch(domain:www.hoteldeshorlogers.com)",
       "WebFetch(domain:royalsavoylausanne.com)",
-      "WebFetch(domain:tulip-inn-lausanne.goldentulip.com)"
+      "WebFetch(domain:tulip-inn-lausanne.goldentulip.com)",
+      "PowerShell(\\(Get-Content \"c:\\\\Users\\\\Matis\\\\Desktop\\\\blandine-site\\\\index.html\" -Raw -Encoding utf8\\) -replace 'rgba\\\\\\(31,79,89,', 'rgba\\(23,19,19,' | Set-Content \"c:\\\\Users\\\\Matis\\\\Desktop\\\\blandine-site\\\\index.html\" -Encoding utf8)"
     ]
   }
 }
