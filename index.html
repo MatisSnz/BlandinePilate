@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bland In Flow, Cours Pilates Haut-Doubs & Nord Vaudois</title>
+  <title>Bland In Flow, Pilates Haut-Doubs & Nord Vaudois</title>
   <meta name="description" content="Cours privés, semi-privés et collectifs en entreprise dans le Haut-Doubs et le Nord Vaudois. Méthode Joseph Pilates par Blandine Boillon." />
 
   <!-- Open Graph -->
@@ -198,7 +198,7 @@
       position: relative;
       height: 100vh;
       max-height: 100vh;
-      overflow: hidden;
+      overflow: visible;
       padding: 132px 0 40px;
       display: grid;
       align-items: center;
@@ -398,7 +398,7 @@
 
     .who-grid {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(6, 1fr);
       gap: 18px;
       margin-top: 54px;
     }
@@ -899,6 +899,64 @@
     .reveal { opacity: 0; transform: translateY(26px); transition: opacity .8s ease, transform .8s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
+    .popup-notif {
+      position: fixed;
+      top: 24px;
+      right: 24px;
+      z-index: 200;
+      width: 300px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(23,19,19,.18);
+      padding: 18px 18px 18px 18px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      transform: translateX(340px);
+      opacity: 0;
+      transition: transform .55s cubic-bezier(0.16,1,0.3,1), opacity .55s ease;
+      pointer-events: none;
+    }
+    .popup-notif.show {
+      transform: translateX(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .popup-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--rose), #BF8F88);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      font-size: 18px;
+      color: white;
+    }
+    .popup-body { flex: 1; }
+    .popup-brand { font-size: 10px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin: 0 0 3px; }
+    .popup-title { font-size: 14px; font-weight: 700; color: var(--ink); margin: 0 0 4px; }
+    .popup-text { font-size: 12px; color: var(--muted); line-height: 1.5; margin: 0 0 12px; }
+    .popup-cta { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; color: var(--rose); text-decoration: none; }
+    .popup-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: rgba(23,19,19,.08);
+      border: none;
+      cursor: pointer;
+      font-size: 11px;
+      color: var(--muted);
+      display: grid;
+      place-items: center;
+      line-height: 1;
+      padding: 0;
+    }
+    .popup-close:hover { background: rgba(23,19,19,.15); }
+
     @media (max-width: 980px) {
       .nav-links { display: none; }
       .hero-grid, .split, .zone-grid, .contact-box { grid-template-columns: 1fr; }
@@ -962,9 +1020,9 @@
       </div>
       <div class="container hero-grid">
         <div>
-          <div class="eyebrow"><span class="dot"></span> Haut-Doubs • Nord Vaudois • En entreprise</div>
+          <div class="eyebrow"><span class="dot"></span> Haut-Doubs • Nord Vaudois</div>
           <h1>Le mouvement en douceur,<br><span class="green">La force en profondeur.</span></h1>
-          <p>Cours privés, semi-privés et collectifs en entreprise dans le Haut-Doubs et le Nord Vaudois.</p>
+          <p>Cours privés, semi-privés à domicile et/ou collectifs chez les professionnels dans le Haut-Doubs et le Nord Vaudois.</p>
           <p style="margin-top:14px;">Une approche inspirée de la méthode de <span style="color:var(--sage);font-weight:800;font-style:italic;">Joseph Pilates</span> mêlant mobilité, posture, respiration et renforcement profond.</p>
           <div class="hero-actions">
             <a href="#contact" class="btn btn-green">Demander un premier échange <span class="arrow">→</span></a>
@@ -980,8 +1038,8 @@
 
         <div class="hero-visual">
           <div class="floating-note note-top">
-            <p class="note-title">Sensation recherchée</p>
-            <p class="note-text">Calme durable</p>
+            <p class="note-title">Approche</p>
+            <p class="note-text">Renforcement doux</p>
           </div>
           <div class="floating-note note-badge">1ère prise de contact offerte</div>
           <div class="hero-card">
@@ -995,13 +1053,6 @@
       </div>
     </section>
 
-    <div class="marquee-wrap">
-      <div class="marquee">
-        <div class="marquee-items">
-          <span>Cours privés</span><span>Cours semi-privés</span><span>À domicile</span><span>Haut-Doubs</span><span>Nord Vaudois</span><span>50 minutes pour toi</span><span>Certifiée méthode Joseph Pilates</span><span>Entreprises & hôtels</span>
-        </div>
-      </div>
-    </div>
 
     <section class="section-pad" id="approche">
       <div class="container">
@@ -1088,9 +1139,15 @@
           </div>
 
           <div class="who-card reveal">
-            <div class="icon">☼</div>
-            <h3>Bien-être global</h3>
-            <p>Pour ralentir, respirer davantage et retrouver une présence plus apaisée au quotidien.</p>
+            <div class="icon">♡</div>
+            <h3>Post-partum</h3>
+            <p>Retrouver son corps en douceur après l'accouchement, renforcer le périnée et reprendre confiance.</p>
+          </div>
+
+          <div class="who-card reveal">
+            <div class="icon">☽</div>
+            <h3>Séniors</h3>
+            <p>Maintenir la mobilité, la souplesse et l'équilibre pour rester actif et autonome au quotidien.</p>
           </div>
 
           <div class="who-card reveal">
@@ -1163,14 +1220,14 @@
                     <span class="offer-card-amount">30 €</span>
                     <span class="offer-card-unit">/ séance</span>
                   </div>
-                  <div class="offer-card-sub">Cours privé · 1 personne · À domicile · Haut-Doubs</div>
+                  <div class="offer-card-sub">Cours privé · 1 personne</div>
                 </div>
                 <div>
                   <div class="offer-card-price-block">
                     <span class="offer-card-amount">40 €</span>
                     <span class="offer-card-unit">/ séance</span>
                   </div>
-                  <div class="offer-card-sub">Cours semi-privé · 2 personnes · À domicile · Haut-Doubs</div>
+                  <div class="offer-card-sub">Cours semi-privé · 2 personnes</div>
                 </div>
               </div>
               <div class="offer-card-cta"><a href="#contact" class="btn btn-light">Réserver <span class="arrow">→</span></a></div>
@@ -1182,17 +1239,17 @@
               <div class="offer-card-price-block" style="margin-top:28px;">
                 <span class="offer-card-devis">Sur devis</span>
               </div>
-              <div class="offer-card-sub">Hôtels · Entreprises · Nord Vaudois · Format adapté</div>
+              <div class="offer-card-sub">Format adapté à votre établissement</div>
               <div class="offer-card-cta"><a href="#contact" class="btn btn-light">Nous contacter <span class="arrow">→</span></a></div>
             </div>
             <div class="offer-card ink">
               <span class="offer-card-tag">Événements</span>
-              <h3>EVJF, anniversaires & collectifs</h3>
-              <p>Offrez une expérience Pilates unique pour vos moments forts — EVJF, anniversaires, séminaires bien-être ou tout autre événement en groupe.</p>
+              <h3>EVJF, mariages, anniversaires & collectifs</h3>
+              <p>Offrez une expérience Pilates unique pour vos moments forts — EVJF, mariages, anniversaires, séminaires bien-être ou tout autre événement en groupe. Dans le Haut-Doubs et le Nord Vaudois.</p>
               <div class="offer-card-price-block" style="margin-top:28px;">
                 <span class="offer-card-devis">Sur devis</span>
               </div>
-              <div class="offer-card-sub">Tarif personnalisé selon le nombre de personnes et le lieu</div>
+              <div class="offer-card-sub">Tarif selon le nombre de personnes et le lieu</div>
               <div class="offer-card-cta"><a href="#contact" class="btn btn-light">Demander un devis <span class="arrow">→</span></a></div>
             </div>
           </div>
@@ -1268,18 +1325,18 @@
 
         <div class="testimonial-grid">
           <div class="testimonial-card reveal">
-            <p>“J’avais constamment mal au dos et la sensation de ne plus respirer correctement. Les séances avec Blandine sont devenues un vrai espace de récupération mentale et physique.”</p>
-            <div class="testimonial-author">Claire  Lausanne</div>
+            <p>”Je n’avais plus pratiqué de sport depuis des années. Grâce au Pilates avec Blandine, j’ai retrouvé de l’énergie, de la force et surtout l’envie de bouger à nouveau. Je cours maintenant régulièrement.”</p>
+            <div class="testimonial-author"><strong>Sophie</strong> — Pontarlier</div>
           </div>
 
           <div class="testimonial-card reveal">
             <p>“Après ma grossesse, je cherchais quelque chose de doux mais exigeant. Je me suis sentie écoutée dès la première séance.”</p>
-            <div class="testimonial-author">Émilie  Pontarlier</div>
+            <div class="testimonial-author"><strong>Stéphanie</strong> — Montperreux</div>
           </div>
 
           <div class="testimonial-card reveal">
             <p>“Le travail sur la mobilité et la posture m’a énormément aidé dans ma pratique sportive. Tout est précis, calme et très professionnel.”</p>
-            <div class="testimonial-author">Thomas  Malbuisson</div>
+            <div class="testimonial-author"><strong>Eric</strong> — Malbuisson</div>
           </div>
         </div>
 
@@ -1290,7 +1347,6 @@
     </section>
 
     <section class="contact" id="contact">
-      <div class="container">
         <div class="contact-box reveal">
           <div class="contact-copy">
             <p class="kicker">Premier pas</p>
@@ -1298,7 +1354,7 @@
             <p>Expliquez votre besoin. Blandine vous répond pour voir le format le plus juste : séance découverte, accompagnement ponctuel ou suivi régulier.</p>
             <div class="contact-actions">
               <a href="mailto:blandine.boillon@icloud.com" class="btn btn-dark">Écrire à Blandine <span class="arrow">→</span></a>
-              <a href="tel:+33000000000" class="btn btn-light">Appeler</a>
+              <a href="tel:+33602602110" class="btn btn-light">&#9990; 06 02 60 21 10</a>
             </div>
           </div>
           <div class="contact-visual">
@@ -1399,6 +1455,17 @@
     <a href="#contact" class="btn btn-dark">Réserver un premier échange <span class="arrow">→</span></a>
   </div>
 
+  <div class="popup-notif" id="popupNotif" role="dialog" aria-label="Message de Blandine">
+    <button class="popup-close" id="popupClose" aria-label="Fermer">✕</button>
+    <div class="popup-icon">☎</div>
+    <div class="popup-body">
+      <p class="popup-brand">Bland In Flow</p>
+      <p class="popup-title">On commence ensemble ?</p>
+      <p class="popup-text">Première prise de contact offerte. Je réponds personnellement à chaque message.</p>
+      <a href="tel:+33602602110" class="popup-cta">06 02 60 21 10 →</a>
+    </div>
+  </div>
+
   <script>
     (function () {
       const zone = document.querySelector('.offers-scroll-zone');
@@ -1464,6 +1531,24 @@
     }, { threshold: 0.12 });
 
     document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+    (function () {
+      var popup = document.getElementById('popupNotif');
+      var closeBtn = document.getElementById('popupClose');
+      var timer;
+      function hidePopup() {
+        popup.classList.remove('show');
+      }
+      function showPopup() {
+        popup.classList.add('show');
+        timer = setTimeout(hidePopup, 15000);
+      }
+      setTimeout(showPopup, 20000);
+      closeBtn.addEventListener('click', function () {
+        clearTimeout(timer);
+        hidePopup();
+      });
+    })();
   </script>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -1478,7 +1563,7 @@
         center: CENTER,
         zoom: ZOOM,
         zoomControl: true,
-        scrollWheelZoom: false
+        scrollWheelZoom: true
       });
 
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -1488,7 +1573,7 @@
 
       const zoneStyle = { color: '#93AF82', fillColor: '#93AF82', fillOpacity: 0.22, weight: 2 };
       L.circle([46.90, 6.35], Object.assign({}, zoneStyle, { radius: 22000 })).addTo(map).bindPopup('Haut-Doubs  Mouthe à Pontarlier');
-      L.circle([46.62, 6.57], Object.assign({}, zoneStyle, { radius: 38000 })).addTo(map).bindPopup('Nord Vaudois  Le Brassus, Lausanne, Yverdon');
+      L.circle([46.7225, 6.5333], Object.assign({}, zoneStyle, { radius: 30000 })).addTo(map).bindPopup('Nord Vaudois — Centré sur Orbe (30km)');
 
       document.getElementById('zone-recenter-btn').addEventListener('click', function () {
         map.setView(CENTER, ZOOM);
@@ -1502,7 +1587,7 @@
       }
 
       function isEligible(lat, lon) {
-        return dist(lat, lon, 46.90, 6.35) <= 22000 || dist(lat, lon, 46.62, 6.57) <= 38000;
+        return dist(lat, lon, 46.90, 6.35) <= 22000 || dist(lat, lon, 46.7225, 6.5333) <= 30000;
       }
 
       var marker = null;
@@ -1548,5 +1633,8 @@
   </script>
 </body>
 </html>
+
+
+
 
 
